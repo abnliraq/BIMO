@@ -3,16 +3,17 @@ Syntax: .exec Code"""
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
-from telethon import events
+from telethon import events, functions, __version__
 import subprocess
 from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
 import io
+import sys
 import asyncio
 import time
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="exec ?(.*)"))
+@borg.on(admin_cmd(pattern="py ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
