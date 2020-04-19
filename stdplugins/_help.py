@@ -25,9 +25,9 @@ async def _(event):
     else:
         s_help_string = ""
     help_string = """@nazi_kun
-Python ** {} **
-Telethon ** {} **
-UserBot Forked from https://github.com/nazkun (private repo)""".format(
+● **Python version** `{}`
+● **Telethon version** `{}`
+● Forked from https://github.com/nazkun (private repo)""".format(
         sys.version,
         __version__
     )
