@@ -24,10 +24,10 @@ async def _(event):
         s_help_string = borg._plugins[splugin_name].__doc__
     else:
         s_help_string = ""
-    help_string = """@UniBorg
-Python {}
-Telethon {}
-UserBot Forked from https://github.com/expectocode/uniborg""".format(
+    help_string = """@nazi_kun
+Python ** {} **
+Telethon ** {} **
+UserBot Forked from https://github.com/nazkun (private repo)""".format(
         sys.version,
         __version__
     )
@@ -56,24 +56,24 @@ async def _(event):
     await event.edit(result.stringify())
 
 
-@borg.on(admin_cmd(pattern="config"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="config ?(.*)", allow_sudo=True))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
     result = await borg(functions.help.GetConfigRequest())  # pylint:disable=E0602
     result = result.stringify()
     logger.info(result)  # pylint:disable=E0602
-    await event.edit("""Telethon UserBot powered by @UniBorg""")
+    await event.edit("""**Telethon UserBot powered by**: @nazi""")
 
 
-@borg.on(admin_cmd(pattern="syntax (.*)"))
+@borg.on(admin_cmd(pattern="syntax  ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
     plugin_name = event.pattern_match.group(1)
     if plugin_name in borg._plugins:
         help_string = borg._plugins[plugin_name].__doc__
-        unload_string = f"Use `.unload {plugin_name}` to remove this plugin.\n           © @UniBorg"
+        unload_string = f"Use `.unload {plugin_name}` to remove this plugin.\n           © @nazi_kun"
         if help_string:
             plugin_syntax = f"Syntax for plugin **{plugin_name}**:\n\n{help_string}\n{unload_string}"
         else:
