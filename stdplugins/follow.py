@@ -28,11 +28,3 @@ async def _(event):
     else:
         await event.reply(help_string + "\n\n" + s_help_string)
         await event.delete()
-
-
-@borg.on(admin_cmd(pattern="d ?(.*)", allow_sudo=True))  # pylint:disable=E0602
-async def _(event):
-    if event.fwd_from:
-        return
-    result = await borg(functions.help.GetNearestDcRequest())  # pylint:disable=E0602
-    await event.edit(result.stringify())
