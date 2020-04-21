@@ -38,16 +38,6 @@ async def _(event):
     await event.edit(result.stringify())
 
 
-@borg.on(admin_cmd(pattern="c ?(.*)", allow_sudo=True))  # pylint:disable=E0602
-async def _(event):
-    if event.fwd_from:
-        return
-    result = await borg(functions.help.GetConfigRequest())  # pylint:disable=E0602
-    result = result.stringify()
-    logger.info(result)  # pylint:disable=E0602
-    await event.edit("""**Telethon UserBot powered by**: @nazi""")
-
-
 @borg.on(admin_cmd(pattern="sy  ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
