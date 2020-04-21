@@ -23,14 +23,7 @@ async def _(event):
     if splugin_name in borg._plugins:
         s_help_string = borg._plugins[splugin_name].__doc__
     else:
-        s_help_string = ""
-    help_string = """@nazi_kun
-● **Python version** `{}`
-● **Telethon version** `{}`
-● Forked from https://github.com/nazkun (private repo)""".format(
-        sys.version,
-        __version__
-    )
+        await event.edit(splugin_name)
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER  # pylint:disable=E0602
     if tgbotusername is not None:
         results = await borg.inline_query(  # pylint:disable=E0602
