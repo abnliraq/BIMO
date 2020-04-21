@@ -36,20 +36,3 @@ async def _(event):
         return
     result = await borg(functions.help.GetNearestDcRequest())  # pylint:disable=E0602
     await event.edit(result.stringify())
-
-
-@borg.on(admin_cmd(pattern="sy  ?(.*)", allow_sudo=True))
-async def _(event):
-    if event.fwd_from:
-        return
-    plugin_name = event.pattern_match.group(1)
-    if plugin_name in borg._plugins:
-        help_string = borg._plugins[plugin_name].__doc__
-        unload_string = f"Use `.unload {plugin_name}` to remove this plugin.\n           © @nazi_kun"
-        if help_string:
-            plugin_syntax = f"Syntax for plugin **{plugin_name}**:\n\n{help_string}\n{unload_string}"
-        else:
-            plugin_syntax = f"No DOCSTRING has been setup for {plugin_name} plugin."
-    else:
-        plugin_syntax = "Enter valid **Plugin** name.\nDo `.exec ls stdplugins` or `.helpme` to get list of valid plugin names."
-    await event.edit(plugin_syntax)
