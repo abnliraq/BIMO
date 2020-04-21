@@ -13,4 +13,4 @@ async def _(event):
     else:
         s_help_string = ""
     help_string = """@nazi_kun
-    await event.edit(plugin_name)
+    await event.edit(splugin_name)
