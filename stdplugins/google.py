@@ -17,12 +17,12 @@ def progress(current, total):
     logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
 
 
-@borg.on(admin_cmd(pattern="google search (.*)"))
+@borg.on(admin_cmd(pattern="google ?(.*)", allow_sudo=True)) 
 async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    await event.edit("Processing ...")
+    await event.reply("Processing ...")
     # SHOW_DESCRIPTION = False
     input_str = event.pattern_match.group(1) # + " -inurl:(htm|html|php|pls|txt) intitle:index.of \"last modified\" (mkv|mp4|avi|epub|pdf|mp3)"
     input_url = "https://bots.shrimadhavuk.me/search/?q={}".format(input_str)
@@ -42,12 +42,12 @@ async def _(event):
     await event.edit("Google: {}\n{}".format(input_str, output_str), link_preview=False)
 
 
-@borg.on(admin_cmd(pattern="google image (.*)"))
+@borg.on(admin_cmd(pattern="google ?(.*)", allow_sudo=True)) 
 async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    await event.edit("Processing ...")
+    await event.reply("Processing ...")
     input_str = event.pattern_match.group(1)
     response = google_images_download.googleimagesdownload()
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
@@ -80,7 +80,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="google reverse search"))
+@borg.on(admin_cmd(pattern="google re ?(.*)", allow_sudo=True)) 
 async def _(event):
     if event.fwd_from:
         return
@@ -88,7 +88,7 @@ async def _(event):
     BASE_URL = "http://www.google.com"
     OUTPUT_STR = "Reply to an image to do Google Reverse Search"
     if event.reply_to_msg_id:
-        await event.edit("Pre Processing Media")
+        await event.reply("Pre Processing Media")
         previous_message = await event.get_reply_message()
         previous_message_text = previous_message.message
         if previous_message.media:
