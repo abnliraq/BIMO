@@ -13,7 +13,8 @@ async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    asyncio.gather("Pong!")
+    await event.reply("Pong!")
     end = datetime.now()
     ms = (end - start)milli.seconds / 1000
-    asyncio.gather("`Pong speed⚡️` !\n{}ms".format(ms))
+        return
+    await event.edit("`Pong speed⚡️` !\n{}ms".format(ms))
