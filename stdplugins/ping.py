@@ -16,4 +16,4 @@ async def _(event):
     await event.reply("Pong!")
     end = datetime.now()
     ms = (end - start).microseconds / 1000000
-    await event.edit("`Pong speed⚡️` !\n{}".format(ms))
+    await event.reply("`Pong speed⚡️` !\n{}".format(ms))
