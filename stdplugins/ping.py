@@ -16,4 +16,4 @@ async def _(event):
     await event.reply("Pong!")
     end = datetime.now()
     ms = (end - start).milliseconds / 1000
-    asyncio.gather("`Pong speed⚡️` !\n{}ms".format(ms))
+    await event.reply("`Pong speed⚡️` !\n{}ms".format(ms))
