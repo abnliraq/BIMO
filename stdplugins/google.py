@@ -80,7 +80,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="goore ?(.*)", allow_sudo=True)) 
+@borg.on(admin_cmd(pattern="greverse ?(.*)", allow_sudo=True)) 
 async def _(event):
     if event.fwd_from:
         return
