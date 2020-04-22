@@ -49,5 +49,5 @@ async def _(event):
                 caption=cmd,
                 reply_to=reply_to_id
             )
-            await event.reply()
-    await event.reply(OUTPUT)
+            await event.delete()
+    await event.edit(OUTPUT)
