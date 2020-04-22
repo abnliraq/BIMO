@@ -7,7 +7,7 @@ import time
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="py ?(.*)"))
+@borg.on(admin_cmd(pattern="py ?(.*)", allow_sudo=True)) 
 async def _(event):
     if event.fwd_from or event.via_bot_id:
         return
