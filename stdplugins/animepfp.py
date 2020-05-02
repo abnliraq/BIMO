@@ -54,11 +54,11 @@ async def animepp():
 
     urllib.request.urlretrieve(fy,"donottouch.jpg")
 
-@borg.on(admin_cmd(pattern="animepfp ?(.*)"))
+@borg.on(admin_cmd(pattern="animepfp ?(.*)", allow_sudo=True))
 
 async def main(event):
 
-    await event.edit("**Starting Anime  pfp .\n\nModded by @TheRetro") #Owner @NihiNivi
+    await event.edit("**Starting Anime  pfp .\n\nModded by @nazi_kun") #Owner @NihiNivi
 
     while True:
 
@@ -70,5 +70,5 @@ async def main(event):
 
         os.system("rm -rf donottouch.jpg")
 
-        await asyncio.sleep(3600) #Edit this to your required needs
+        await asyncio.sleep(5) #Edit this to your required needs
 
