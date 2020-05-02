@@ -58,7 +58,7 @@ async def animepp():
 
 async def main(event):
 
-    await event.edit("**Starting Anime  pfp .\n\nModded by @nazi_kun") #Owner @NihiNivi
+    await event.reply("**Starting Anime  pfp .\n\nModded by @nazi_kun") #Owner @NihiNivi
 
     while True:
 
