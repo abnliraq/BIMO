@@ -1,3 +1,16 @@
+Skip to content
+ SpEcHiDe / UniBorg
+Code Issues 6 Pull requests 3 Wiki Security 0 Pulse
+UniBorg/stdplugins/exec.py
+@SpEcHiDe SpEcHiDe HPFPWBANER roflrofljoy https://t.me/c/1123900632/60920
+73df351 28 days ago
+52 lines (50 sloc)  1.83 KB
+ 
+"""Execute GNU/Linux commands inside Telegram
+Syntax: .exec Code"""
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
 from telethon import events
 import subprocess
 from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
@@ -7,7 +20,7 @@ import time
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="ex", allow_sudo=True))
+@borg.on(admin_cmd(pattern="ex ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from or event.via_bot_id:
         return
@@ -44,4 +57,16 @@ async def _(event):
                 reply_to=reply_to_id
             )
             await event.delete()
-    await event.edit(OUTPUT)
+    await event.reply(OUTPUT)
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
